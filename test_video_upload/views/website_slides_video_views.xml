@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record id="view_inherit_slide_slide_form" model="ir.ui.view">
+			<field name="name">slide.slide.form.view.inherit</field>
+			<field name="model">slide.slide</field>
+			<field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='slide_type']" position="before">
+                 <field name="custom_slide_type" invisible="1"/>
+            	</xpath>
+				<field name='url' position="before">
+                    <button name="test_video_upload.video_slide_attachment_wizard_action" attrs="{'invisible': ['|',('document_type', '=', 'url'),('slide_type', '!=', 'video')]}" type="action" class="btn-success" icon="fa-paperclip" string="Add Attachment" style="width: 100%;height: 35px;"/>
+                    <field name="slide_attachment" attrs="{'invisible': [('slide_type', '!=', 'video')]}" readonly="1"/>
+                    <field name="document_type" attrs="{'invisible': [('slide_type', '!=', 'video')]}"/>
+				</field>
+			</field>
+		</record>
+		<record id="inherited_view_slide_slide_form" model="ir.ui.view">
+        <field name="name">inherited.slide.slide.form.view</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+        <field name="arch" type="xml">
+			<xpath expr="//field[@name='url']" position="attributes">
+                    <attribute name="attrs">{'required': [('image_1920', '=', False),('document_type', '=', 'url')], 'invisible': ['|',('document_type', '!=', 'url'),('custom_slide_type', '!=', 'video')]}</attribute>
+                </xpath>
+		</field>
+
+		</record>
+
+	</data>
+</odoo>

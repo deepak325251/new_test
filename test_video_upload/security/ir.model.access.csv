@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_theme_vibrant_designer_test,Web Menu Manager,model_wk_video_types,website.group_website_designer,1,1,1,1
+access_theme_vibrant_designer_cards_test,access_theme_vibrant_cards,model_website_slide_video,website.group_website_designer,1,1,1,1
+access_video_attachment_wizard,video.attachment.wizard,model_video_attachment_wizard,base.group_user,1,1,1,1
+access_slide_slide,slide.slide,model_slide_slide,base.group_user,1,1,1,1
